@@ -6,6 +6,30 @@
 </p>
 
 <p>
+<% if @game.pieces.attached? %>
+  <ul>
+  <% @game.pieces.each do |piece| %>
+  <li>
+    <%= image_tag piece.variant(resize:'100x100', negate: true).processed %>
+  </li>  
+  <% end %>
+    </ul>
+<% end %>
+</p>
+
+<p>
+<% if @game.covers.attached? %>
+  <ul>
+  <% @game.covers.each do |cover| %>
+  <li>
+    <%= image_tag cover.variant(resize:'100x100', negate: true).processed %>
+  </li>  
+  <% end %>
+    </ul>
+<% end %>
+</p>
+
+<p>
   <%= link_to 'Rules', @game.rule %>
 </p>
 
